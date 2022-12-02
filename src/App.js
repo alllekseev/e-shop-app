@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import {Form} from "./components/classes/Form";
+import {Form as FormFunc} from "./components/func/Form";
+import {useState} from "react";
+export function App() {
+    const [toggle, setToggle] = useState(true);
+    const [arr] = useState([{name: 'Biba'}, {name: 'Boba'}, {name: 'Giga'}, {name: 'Goga'},])
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <>
+            <Form />
+            <hr />
+            <button onClick={() => setToggle(!toggle)}>{toggle ? 'Hide' : 'Show'}</button>
+            {toggle && <FormFunc title='Function Component' />}
+            <ul>
+                {arr.map((item) => (
+                    <li key={item.name.toString()}>{item.name}</li>
+                ))}
+            </ul>
+        </>
+    )
 }
-
-export default App;
