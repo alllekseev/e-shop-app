@@ -1,0 +1,28 @@
+.wrapper-list-of-chats {
+  position: relative;
+  height: 100%;
+  padding: 10px;
+  overflow-y: auto;
+  border-right: 1px solid #607d8b;
+  background: #001E3C;
+}
+
+.list-of-charts-search {
+  height: max-content;
+  width: 100%;
+  min-height: 60px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #334b63;
+}
+.list-of-charts-search h2 {
+  color: white;
+  margin: 0;
+}
+
+/*# sourceMappingURL=list-of-chats.css.map */

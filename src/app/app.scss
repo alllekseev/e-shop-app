@@ -1,0 +1,46 @@
+.wrapper {
+  //padding: 40px 40px 0 40px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: #00152a;
+  //height: 100%;
+}
+
+header {
+  width: 100vw;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > h1 {
+    color: #727676;
+  }
+}
+
+.main {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  border-top: 1px solid #607d8b;
+
+  &__current-chat-container {
+    //padding: 0 10px;
+    position: relative;
+    //display: flex;
+    //align-items: center;
+    //flex-direction: column;
+    //width: 100%;
+
+    &__content {
+      //flex: 1 1 auto;
+    }
+
+    &__footer {
+      //flex: 0 0 auto;
+    }
+  }
+}

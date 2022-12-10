@@ -1,0 +1,19 @@
+.form {
+  position: absolute;
+  bottom: 60px;
+  padding: 5px 10px;
+  left: 0;
+  right: 0;
+  background: #b0bec5;
+  border-radius: 9px;
+  margin: 0 10px;
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: 10fr 2fr;
+  grid-column-gap: 10px;
+  width: 100%;
+}
+
+/*# sourceMappingURL=form.css.map */
