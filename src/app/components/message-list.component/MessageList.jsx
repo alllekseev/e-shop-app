@@ -9,7 +9,7 @@ export function MessageList({messages}) {
       <div className="list-of-chats-wrapper">
         <div className="current-chart-header">
           <div className="current-chart-header__left">
-            <PersonIcon className="current-chart-header__left_avatar" />
+            <PersonIcon className="current-chart-header__left_avatar"/>
             <div className="current-chart-header__left__info">
               <h3 className="current-chart-header__left__info_chat-name">
                 Bot
@@ -26,15 +26,14 @@ export function MessageList({messages}) {
         </div>
         <div className="messenger">
           {(messages.length < 1) && <p className="messenger_placeholder">No messages yet!</p>}
-          {messages.length > 0 && <ul>
-            {messages.map((message) => (
-              <li key={uuid()}>
-                <p>Author: {message.author}</p>
-                <p>Message: {message.text}</p>
-                <hr/>
-              </li>
-            ))}
-          </ul>}
+          {messages.length > 0 &&
+            messages.map((message) => (
+              <div className="message-block" key={uuid()}>
+                <p>{message.author}</p>
+                <p>{message.text}</p>
+              </div>
+            ))
+          }
         </div>
       </div>
     </>
