@@ -5,7 +5,7 @@ import uuid from "react-uuid";
 import ChatIcon from '@mui/icons-material/Chat';
 import PropTypes from "prop-types";
 export function ListOfChats() {
-  const [chats, setChats] = useState([]);
+  const [chats, setChats] = useState();
 
   useEffect(() => {
     setChats([
@@ -39,7 +39,7 @@ export function ListOfChats() {
           <h2>List of chats</h2>
         </div>
         <List>
-          {chats.map((chat) => (
+          {chats?.map((chat) => (
             <ListItem disablePadding sx={{height: 60}} key={uuid()}>
               <ListItemButton className="list-item-button" sx={{height: 60}} key={uuid()}>
                 <ListItemIcon>
