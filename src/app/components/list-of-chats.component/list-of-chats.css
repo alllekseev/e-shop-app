@@ -1,23 +1,23 @@
 .wrapper-list-of-chats {
-  position: relative;
   height: 100%;
+  position: relative;
+  border-right: 1px solid #3c577b;
+  background: #002b44;
   overflow-y: auto;
-  border-right: 1px solid #607d8b;
-  background: #001E3C;
 }
 
 .list-of-charts-search {
-  height: max-content;
   width: 100%;
+  height: max-content;
   min-height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid #334b63;
+  border-bottom: 1px solid #3c577b;
+  background: #002b44;
 }
 .list-of-charts-search h2 {
-  color: white;
-  margin: 0;
+  color: #e1e9ff;
 }
 
 .item-list {
@@ -25,19 +25,18 @@
 }
 
 .list-item-text {
-  color: white;
-  margin: 0;
+  color: #e1e9ff;
 }
 
 .color-icon {
-  color: white;
+  color: #e1e9ff;
 }
 
 .list-item-button {
-  background: #78909c;
+  background: #6d9dc0;
 }
 .list-item-button:hover {
-  background: #334b63;
+  background: #34739a;
 }
 
 /*# sourceMappingURL=list-of-chats.css.map */

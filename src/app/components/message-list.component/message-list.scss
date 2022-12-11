@@ -1,20 +1,18 @@
+@use '../../../assets/scss/variables' as variables;
+
 .list-of-chats-wrapper {
   position: relative;
   height: 100%;
 }
 
 .current-chart-header {
-  //position: absolute;
   height: 60px;
-  //width: 100%;
-  //top: 0;
-  //right: 0;
-  //left: 0;
-  display: flex;
   padding: 0 10px;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #334b63;
+  border-bottom: 1px solid variables.$messenger-primary-main;
+  background: variables.$messenger-secondary-dark;
   z-index: 1;
 
   &__left {
@@ -27,7 +25,7 @@
     &_avatar {
       width: 40px;
       height: 40px;
-      background: #78909c;
+      background: variables.$messenger-secondary-light;
       border-radius: 50%;
     }
 
@@ -37,71 +35,53 @@
       justify-content: space-between;
 
       &_chat-name {
-        margin: 0;
-        color: white;
+        color: variables.$messenger-primary-contrastText;
       }
 
       &_note {
-        margin: 0;
-        color: white;
+        color: variables.$messenger-primary-contrastText;
       }
     }
   }
 
   &__actions {
     & h4 {
-      color: white;
-      margin: 0;
+      color: variables.$messenger-primary-contrastText;
     }
   }
 }
 
-.message-block {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: max-content;
-  width: max-content;
-  max-width: 148px;
-  word-break: break-all;
-  row-gap: 4px;
-  border-radius: 10px;
-  padding: 2px 10px;
-  background: #78909c;
-
-  & p {
-    color: white;
-    margin: 0;
-  }
-}
-
 .messenger {
-  height: 72%;
   max-height: 629px;
-  display: flex;
-  //border: 1px solid #727676;
-  border-radius: 2px;
+  height: 72%;
   margin: 25px 60px 0 60px;
+  display: flex;
   flex-direction: column;
   row-gap: 12px;
+  border-radius: 2px;
   overflow-y: auto;
 
   &_placeholder {
     margin: auto;
     height: max-content;
-    color: white;
+    color: variables.$messenger-primary-contrastText;
   }
+}
 
-  & ul {
-    height: 90%;
-    width: 100%;
-    padding: 20px;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
+.message-block {
+  max-width: 148px;
+  width: max-content;
+  height: max-content;
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  row-gap: 4px;
+  border-radius: 10px;
+  word-break: break-all;
+  background: variables.$messenger-secondary-dark;
 
-    & li {
-      color: whitesmoke;
-    }
+  & p {
+    color: variables.$messenger-primary-contrastText;
   }
 }

@@ -5,11 +5,12 @@
 
 .current-chart-header {
   height: 60px;
-  display: flex;
   padding: 0 10px;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #334b63;
+  border-bottom: 1px solid #3c577b;
+  background: #002b44;
   z-index: 1;
 }
 .current-chart-header__left {
@@ -22,7 +23,7 @@
 .current-chart-header__left_avatar {
   width: 40px;
   height: 40px;
-  background: #78909c;
+  background: #6d9dc0;
   border-radius: 50%;
 }
 .current-chart-header__left__info {
@@ -31,61 +32,46 @@
   justify-content: space-between;
 }
 .current-chart-header__left__info_chat-name {
-  margin: 0;
-  color: white;
+  color: #e1e9ff;
 }
 .current-chart-header__left__info_note {
-  margin: 0;
-  color: white;
+  color: #e1e9ff;
 }
 .current-chart-header__actions h4 {
-  color: white;
-  margin: 0;
-}
-
-.message-block {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: max-content;
-  width: max-content;
-  max-width: 148px;
-  word-break: break-all;
-  row-gap: 4px;
-  border-radius: 10px;
-  padding: 2px 10px;
-  background: #78909c;
-}
-.message-block p {
-  color: white;
-  margin: 0;
+  color: #e1e9ff;
 }
 
 .messenger {
-  height: 72%;
   max-height: 629px;
-  display: flex;
-  border-radius: 2px;
+  height: 72%;
   margin: 25px 60px 0 60px;
+  display: flex;
   flex-direction: column;
   row-gap: 12px;
+  border-radius: 2px;
   overflow-y: auto;
 }
 .messenger_placeholder {
   margin: auto;
   height: max-content;
-  color: white;
+  color: #e1e9ff;
 }
-.messenger ul {
-  height: 90%;
-  width: 100%;
-  padding: 20px;
-  overflow-y: auto;
+
+.message-block {
+  max-width: 148px;
+  width: max-content;
+  height: max-content;
+  padding: 6px 10px;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  row-gap: 4px;
+  border-radius: 10px;
+  word-break: break-all;
+  background: #002b44;
 }
-.messenger ul li {
-  color: whitesmoke;
+.message-block p {
+  color: #e1e9ff;
 }
 
 /*# sourceMappingURL=message-list.css.map */

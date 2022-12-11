@@ -15,14 +15,14 @@ header {
   align-items: center;
 }
 header > h1 {
-  color: #727676;
+  color: #e1e9ff;
 }
 
 .main {
   height: 100%;
   display: grid;
   grid-template-columns: 4fr 8fr;
-  border-top: 1px solid #607d8b;
+  border-top: 1px solid #3c577b;
 }
 .main__current-chat-container {
   position: relative;

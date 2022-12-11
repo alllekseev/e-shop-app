@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["message.scss"],"names":[],"mappings":"AAAA;EACE","file":"message.css"}
+{"version":3,"sourceRoot":"","sources":["message.scss","../../../assets/scss/variables.scss"],"names":[],"mappings":"AAEA;EACE,OCIiC","file":"message.css"}

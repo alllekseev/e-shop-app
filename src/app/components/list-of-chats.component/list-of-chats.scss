@@ -1,28 +1,25 @@
+@use '../../../assets/scss/variables' as variables;
+
 .wrapper-list-of-chats {
-  position: relative;
   height: 100%;
-  //padding: 10px;
+  position: relative;
+  border-right: 1px solid variables.$messenger-primary-main;
+  background: variables.$messenger-secondary-dark;
   overflow-y: auto;
-  border-right: 1px solid #607d8b;
-  background: #001E3C;
 }
 
 .list-of-charts-search {
-  height: max-content;
   width: 100%;
+  height: max-content;
   min-height: 60px;
-  //position: absolute;
-  //top: 0;
-  //right: 0;
-  //left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid #334b63;
+  border-bottom: 1px solid variables.$messenger-primary-main;
+  background: variables.$messenger-secondary-dark;
 
   & h2 {
-    color: white;
-    margin: 0;
+    color: variables.$messenger-primary-contrastText;
   }
 }
 
@@ -31,18 +28,17 @@
 }
 
 .list-item-text {
-  color: white;
-  margin: 0;
+  color: variables.$messenger-primary-contrastText;
 }
 
 .color-icon {
-  color: white;
+  color: variables.$messenger-primary-contrastText;
 }
 
 .list-item-button {
-  background: #78909c;
+  background: variables.$messenger-secondary-light;
 
   &:hover {
-    background: #334b63;
+    background: variables.$messenger-secondary-main;
   }
 }

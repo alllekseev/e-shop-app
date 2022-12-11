@@ -5,6 +5,8 @@ import {Form} from "./components/form.component/Form";
 import {MessageList} from "./components/message-list.component/MessageList";
 import {AUTHOR} from "./constants/Author";
 import {ListOfChats} from "./components/list-of-chats.component/ListOfChats";
+import {ThemeProvider} from "@mui/material";
+import {theme} from "../assets/theme/Theme.component";
 
 export function App() {
   const [messages, setMessages] = useState([]);
@@ -28,20 +30,22 @@ export function App() {
 
   return (
     <>
-      <div className="wrapper">
-        <header>
-          <h1>Welcome to chat!</h1>
-        </header>
-        <main className="main">
-          <div className="main__list-of-chats">
-            <ListOfChats/>
-          </div>
-          <div className="main__current-chat-container">
-            <MessageList messages={messages}/>
-            <Form addMessage={addMessage}/>
-          </div>
-        </main>
-      </div>
+      <ThemeProvider theme={theme}>
+        <div className="wrapper">
+          <header>
+            <h1>Welcome to chat!</h1>
+          </header>
+          <main className="main">
+            <div className="main__list-of-chats">
+              <ListOfChats/>
+            </div>
+            <div className="main__current-chat-container">
+              <MessageList messages={messages}/>
+              <Form addMessage={addMessage}/>
+            </div>
+          </main>
+        </div>
+      </ThemeProvider>
     </>
   )
 }
