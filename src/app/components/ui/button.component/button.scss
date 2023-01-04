@@ -1,0 +1,18 @@
+.btn {
+  margin-top: 20px;
+  color: #ffffff;
+  background: #006874;
+  padding: 0 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 20px;
+  line-height: 40px;
+  font-size: 16px;
+
+  &:disabled {
+    background: #727676;
+  }
+}

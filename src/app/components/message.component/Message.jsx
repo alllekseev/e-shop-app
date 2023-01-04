@@ -1,3 +1,5 @@
+import "./message.scss";
+
 export function Message(props) {
   return (
     <>

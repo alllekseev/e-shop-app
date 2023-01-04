@@ -1,0 +1,44 @@
+@use '../../../assets/scss/variables' as variables;
+
+.wrapper-list-of-chats {
+  height: 100%;
+  position: relative;
+  border-right: 1px solid variables.$messenger-primary-main;
+  background: variables.$messenger-secondary-dark;
+  overflow-y: auto;
+}
+
+.list-of-charts-search {
+  width: 100%;
+  height: max-content;
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid variables.$messenger-primary-main;
+  background: variables.$messenger-secondary-dark;
+
+  & h2 {
+    color: variables.$messenger-primary-contrastText;
+  }
+}
+
+.item-list {
+  height: 40px;
+}
+
+.list-item-text {
+  color: variables.$messenger-primary-contrastText;
+}
+
+.color-icon {
+  color: variables.$messenger-primary-contrastText;
+}
+
+.list-item-button {
+  background: variables.$messenger-secondary-light;
+
+  &:hover {
+    background: variables.$messenger-secondary-main;
+  }
+}

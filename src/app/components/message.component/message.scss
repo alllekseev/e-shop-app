@@ -1,0 +1,5 @@
+@use '../../../assets/scss/variables' as variables;
+
+.title {
+  color: variables.$messenger-secondary-contrastText;
+}

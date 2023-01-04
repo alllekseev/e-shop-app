@@ -1,0 +1,87 @@
+@use '../../../assets/scss/variables' as variables;
+
+.list-of-chats-wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.current-chart-header {
+  height: 60px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid variables.$messenger-primary-main;
+  background: variables.$messenger-secondary-dark;
+  z-index: 1;
+
+  &__left {
+    width: max-content;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+
+    &_avatar {
+      width: 40px;
+      height: 40px;
+      background: variables.$messenger-secondary-light;
+      border-radius: 50%;
+    }
+
+    &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      &_chat-name {
+        color: variables.$messenger-primary-contrastText;
+      }
+
+      &_note {
+        color: variables.$messenger-primary-contrastText;
+      }
+    }
+  }
+
+  &__actions {
+    & h4 {
+      color: variables.$messenger-primary-contrastText;
+    }
+  }
+}
+
+.messenger {
+  max-height: 629px;
+  height: 72%;
+  margin: 25px 60px 0 60px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+  border-radius: 2px;
+  overflow-y: auto;
+
+  &_placeholder {
+    margin: auto;
+    height: max-content;
+    color: variables.$messenger-primary-contrastText;
+  }
+}
+
+.message-block {
+  max-width: 148px;
+  width: max-content;
+  height: max-content;
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  row-gap: 4px;
+  border-radius: 10px;
+  word-break: break-all;
+  background: variables.$messenger-secondary-dark;
+
+  & p {
+    color: variables.$messenger-primary-contrastText;
+  }
+}
