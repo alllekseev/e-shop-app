@@ -1,5 +1,11 @@
 @use './assets/scss/variables' as variables;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   margin: 0;
   padding: 0;
@@ -24,6 +30,10 @@ code {
   monospace;
 }
 
-h1, h2, h3, h4, h5, h6, p, ul, li {
-  margin: 0;
+//h1, h2, h3, h4, h5, h6, p, ul, li {
+//  margin: 0;
+//}
+
+ul li {
+  list-style: none;
 }

@@ -1,0 +1,68 @@
+.wrapperListOfChats {
+  height: 100%;
+  position: relative;
+  border-right: 1px solid #3c577b;
+  background: #002b44;
+  overflow-y: auto;
+}
+
+.listOfChatsSearch {
+  width: 100%;
+  height: max-content;
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #3c577b;
+  background: #002b44;
+}
+.listOfChatsSearch .h2 {
+  color: #e1e9ff;
+}
+
+.itemList {
+  height: 40px;
+}
+
+.listItemText {
+  color: #e1e9ff;
+}
+
+.colorIcon {
+  color: #e1e9ff;
+}
+
+.listItemButton {
+  width: 100%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.listItemButtonContent {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.deleteButton {
+  width: max-content;
+}
+
+.formContainer {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  column-gap: 10px;
+}
+
+.textField {
+  background: white;
+  border-radius: 4px;
+}
+
+label.Mui-focused {
+  color: #fff;
+}
+
+/*# sourceMappingURL=list-of-chats.module.css.map */
