@@ -6,7 +6,7 @@ import {Button} from "@mui/material";
 import {TextField} from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 
-export function Form({addMessage}) {
+export function Form({handleAddMessage}) {
   const [text, setText] = useState('');
   const inputRef = useRef(null);
 
@@ -16,7 +16,7 @@ export function Form({addMessage}) {
 
   const handleMessage = (event) => {
     event.preventDefault();
-    addMessage({
+    handleAddMessage({
       author: AUTHOR.user,
       text
     })

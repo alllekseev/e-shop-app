@@ -1,53 +1,64 @@
-import "./list-of-chats.scss";
-import {List, ListItem, ListItemButton, ListItemIcon, ListItemText} from "@mui/material";
-import {useEffect, useState} from "react";
-import uuid from "react-uuid";
+import styles from "./list-of-chats.module.scss";
+import {Button, List, ListItem, ListItemButton, ListItemIcon, ListItemText, TextField} from "@mui/material";
+import {useState} from "react";
 import ChatIcon from '@mui/icons-material/Chat';
 import PropTypes from "prop-types";
-export function ListOfChats() {
-  const [chats, setChats] = useState([]);
+import {nanoid} from "nanoid";
+import {Link} from "react-router-dom";
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+export function ListOfChats({onAddChat, chats}) {
+  const [value, setValue] = useState('');
 
-  useEffect(() => {
-    setChats([
-      {
-        user: 'Bot',
-        text: ''
-      },
-      {
-        user: 'User 1',
-        text: ''
-      },
-      {
-        user: 'User 2',
-        text: ''
-      },
-      {
-        user: 'User 3',
-        text: ''
-      },
-      {
-        user: 'User 4',
-        text: ''
-      },
-    ])
-  }, [])
+  const handleChange = (e) => {
+    setValue(e.target.value)
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onAddChat({
+      id: nanoid(),
+      name: value
+    })
+    setValue('')
+  }
 
   return (
     <>
-      <div className="wrapper-list-of-chats">
-        <div className="list-of-charts-search">
-          <h2>List of chats</h2>
+      <div className={styles.wrapperListOfChats}>
+        <div className={styles.listOfChatsSearch}>
+          <h2 className={styles.h2}>List of chats</h2>
         </div>
+        <form onSubmit={handleSubmit} className={styles.formContainer}>
+          <TextField
+            className={styles.textField}
+            color="primary"
+            type="text"
+            label="Enter chat name"
+            value={value}
+            onChange={handleChange}
+            variant="outlined"
+          />
+          <Button variant="contained">Create Chat</Button>
+        </form>
         <List>
-          {chats.map((chat) => ( /*todo: how to fix it?*/
-            <ListItem disablePadding sx={{height: 60}} key={uuid()}>
-              <ListItemButton className="list-item-button" sx={{height: 60}} key={uuid()}>
-                <ListItemIcon>
-                  <ChatIcon className="color-icon"></ChatIcon>
-                </ListItemIcon>
-                <ListItemText className="list-item-text">{chat.user}</ListItemText>
-              </ListItemButton>
-            </ListItem>
+          {chats.map((chat) => (
+            <Link to={`/chats/${chat.name}`} key={chat.id}>
+              <ListItem disablePadding sx={{height: 60}} key={chat.id}>
+                <ListItemButton className={styles.listItemButton} sx={{height: 60}} key={chat.id}>
+                  <div className={styles.listItemButtonContent}>
+                    <ListItemIcon>
+                      <ChatIcon className={styles.colorIcon}></ChatIcon>
+                    </ListItemIcon>
+                    <ListItemText className={styles.listItemButton}>{chat.name}</ListItemText>
+                  </div>
+                  <ListItemButton className={styles.deleteButton}>
+                    <ListItemIcon>
+                      <DeleteOutlineIcon className={styles.colorIcon}></DeleteOutlineIcon>
+                    </ListItemIcon>
+                  </ListItemButton>
+                </ListItemButton>
+              </ListItem>
+            </Link>
           ))}
         </List>
       </div>

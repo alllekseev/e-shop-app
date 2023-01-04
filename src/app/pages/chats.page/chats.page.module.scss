@@ -1,0 +1,33 @@
+@use '../../../assets/scss/variables' as variables;
+
+.wrapper {
+  position: fixed;
+  top: 80px;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: variables.$messenger-primary-dark;
+}
+
+.header {
+  width: 100vw;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > h1 {
+    color: variables.$messenger-primary-contrastText;
+  }
+}
+
+.main {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+  border-top: 1px solid variables.$messenger-primary-main;
+
+  &__currentChatContainer {
+    position: relative;
+  }
+}

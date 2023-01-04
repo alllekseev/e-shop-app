@@ -1,50 +1,75 @@
-import {useEffect, useState} from "react";
+import './app.scss';
 
-import "./app.scss";
-import {Form} from "./components/form.component/Form";
-import {MessageList} from "./components/message-list.component/MessageList";
-import {AUTHOR} from "./constants/Author";
-import {ListOfChats} from "./components/list-of-chats.component/ListOfChats";
 import {ThemeProvider} from "@mui/material";
 import {theme} from "../assets/theme/Theme.component";
+import {NavbarComponent} from "./components/navbar.component/navbar.component";
+import {Route, Routes} from "react-router-dom";
+import {MainPage} from "./pages/main.page/main.page";
+import {ProfilePage} from "./pages/profile.page/profile.page";
+import {ChatsPage} from "./pages/chats.page/chats.page";
+import {ListOfChats} from "./components/list-of-chats.component/ListOfChats";
+import {MessageList} from "./components/message-list.component/MessageList";
+import {useState} from "react";
+import {nanoid} from "nanoid";
+
+const defaultMessages = {
+  default: [
+    {
+      author: 'User',
+      text: 'one text'
+    },
+    {
+      author: 'User',
+      text: 'two text'
+    },
+  ]
+}
 
 export function App() {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(defaultMessages)
 
-  const addMessage = (newMessage) => {
-    if (newMessage.text) {
-      setMessages([newMessage, ...messages])
-    }
+  const chats = Object.keys(messages).map((chat) => ({
+    id: nanoid(),
+    name: chat
+  }))
+
+  const onAddChat = (newChat) => {
+    setMessages({
+      ...messages,
+      [newChat.name]: []
+    })
+    newChat.name = '';
   }
 
-  useEffect(() => {
-    if (messages.length > 0) {
-      const latMessage = messages.at(0);
-      if (latMessage.author !== AUTHOR.bot) {
-        setTimeout(() => {
-          setMessages([{author: AUTHOR.bot, text: 'Message sent!'}, ...messages])
-        }, 1500)
-      }
-    }
-  }, [messages])
-
+  const onAddMessage = (chatId, newMessages) => {
+    setMessages({
+      ...messages,
+      [chatId]: [newMessages, ...messages[chatId]]
+    })
+  }
   return (
     <>
       <ThemeProvider theme={theme}>
-        <div className="wrapper">
-          <header>
-            <h1>Welcome to chat!</h1>
-          </header>
-          <main className="main">
-            <div className="main__list-of-chats">
-              <ListOfChats/>
-            </div>
-            <div className="main__current-chat-container">
-              <MessageList messages={messages}/>
-              <Form addMessage={addMessage}/>
-            </div>
-          </main>
-        </div>
+        <Routes>
+          <Route path='/' element={<NavbarComponent/>}>
+            <Route index element={<MainPage/>}/>
+            <Route path="profile" element={<ProfilePage/>}/>
+            <Route path="chats"
+                   element={
+                     <ChatsPage
+                       chats={chats}
+                       messages={messages}
+                       onAddMessages={onAddMessage}
+                       onAddChat={onAddChat}
+                     />
+                   }>
+              <Route index element={<ListOfChats chats={chats} onAddChat={onAddChat}/>}/>
+              <Route path=":chatId" element={<MessageList/>}/>
+            </Route>
+          </Route>
+
+          <Route path="*" element={<h1>404 Page not found!</h1>}></Route>
+        </Routes>
       </ThemeProvider>
     </>
   )

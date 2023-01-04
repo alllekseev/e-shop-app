@@ -1,6 +1,6 @@
 @use '../../../assets/scss/variables' as variables;
 
-.wrapper-list-of-chats {
+.wrapperListOfChats {
   height: 100%;
   position: relative;
   border-right: 1px solid variables.$messenger-primary-main;
@@ -8,7 +8,7 @@
   overflow-y: auto;
 }
 
-.list-of-charts-search {
+.listOfChatsSearch {
   width: 100%;
   height: max-content;
   min-height: 60px;
@@ -18,27 +18,53 @@
   border-bottom: 1px solid variables.$messenger-primary-main;
   background: variables.$messenger-secondary-dark;
 
-  & h2 {
+  & .h2 {
     color: variables.$messenger-primary-contrastText;
   }
 }
 
-.item-list {
+.itemList {
   height: 40px;
 }
 
-.list-item-text {
+.listItemText {
   color: variables.$messenger-primary-contrastText;
 }
 
-.color-icon {
+.colorIcon {
   color: variables.$messenger-primary-contrastText;
 }
 
-.list-item-button {
-  background: variables.$messenger-secondary-light;
+.listItemButton {
+  width: 100%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  &:hover {
-    background: variables.$messenger-secondary-main;
+  &Content {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
   }
+}
+
+.deleteButton {
+  width: max-content;
+}
+
+.formContainer {
+  width: 100%;
+  margin: 20px 0;
+  display: flex;
+  column-gap: 10px;
+}
+
+.textField {
+  background: white;
+  border-radius: 4px;
+}
+
+label.Mui-focused {
+  color: #fff;
 }
