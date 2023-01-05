@@ -6,10 +6,13 @@ import {MessageList} from "../../components/message-list.component/MessageList";
 import {AUTHOR} from "../../constants/Author";
 import {ListOfChats} from "../../components/list-of-chats.component/ListOfChats";
 import {Navigate, useParams} from "react-router-dom";
+import {WithClasses} from "../../components/HOC/WithClasses";
 
 export function ChatsPage({onAddChat, onAddMessages, messages, chats}) {
   // const [messages, setMessages] = useState([]);
   const {chatId} = useParams()
+
+  const MessageListWithClass = WithClasses(MessageList)
 
   // const addMessage = (newMessage) => {
   //   if (newMessage.text) {
@@ -53,7 +56,11 @@ export function ChatsPage({onAddChat, onAddMessages, messages, chats}) {
             <ListOfChats chats={chats} onAddChat={onAddChat}/>
           </div>
           <div className={styles.main__currentChatContainer}>
-            <MessageList messages={chatId ? messages[chatId] : []}/>
+            {/*<MessageList messages={chatId ? messages[chatId] : []}/>*/}
+            <MessageListWithClass
+              messages={chatId ? messages[chatId] : []}
+              classes={styles.border}
+            />
             <Form handleAddMessage={handleAddMessage}/>
           </div>
         </main>
