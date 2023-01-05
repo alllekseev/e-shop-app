@@ -6,7 +6,7 @@ export const navigate = [
   {
     id: 1,
     name: 'Profile',
-    to: '/profile'
+    to: '/'
   },
   {
     id: 2,

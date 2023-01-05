@@ -28,4 +28,8 @@
   position: relative;
 }
 
+.border {
+  border: 2px solid white;
+}
+
 /*# sourceMappingURL=chats.page.module.css.map */
