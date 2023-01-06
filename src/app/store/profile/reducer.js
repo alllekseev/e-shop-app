@@ -2,7 +2,7 @@ import * as types from './types';
 
 const initialState = {
   name: 'Goga',
-  checked: false
+  visible: true
 }
 
 export const profileReducer = (state = initialState, action) => {
@@ -14,10 +14,10 @@ export const profileReducer = (state = initialState, action) => {
         ...state,
         name: payload
       }
-    case types.CHANGE_CHECKBOX:
+    case types.TOGGLE_PROFILE:
       return {
         ...state,
-        checked: payload
+        visible: !state.visible
       }
     default:
       return state

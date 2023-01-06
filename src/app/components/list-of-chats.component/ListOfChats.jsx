@@ -3,22 +3,19 @@ import {Button, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Text
 import {useState} from "react";
 import ChatIcon from '@mui/icons-material/Chat';
 import PropTypes from "prop-types";
-import {nanoid} from "nanoid";
 import {Link} from "react-router-dom";
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-export function ListOfChats({onAddChat, chats}) {
+import {useDispatch, useSelector} from "react-redux";
+import {addChat, deleteChat} from "../../store/messages/actions";
+import {selectChat} from "../../store/messages/selectors";
+export function ListOfChats() {
   const [value, setValue] = useState('');
-
-  const handleChange = (e) => {
-    setValue(e.target.value)
-  }
+  const dispatch = useDispatch()
+  const chats = useSelector(selectChat, (prev, next) => prev.length === next.length);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddChat({
-      id: nanoid(),
-      name: value
-    })
+    dispatch(addChat(value))
     setValue('')
   }
 
@@ -35,7 +32,7 @@ export function ListOfChats({onAddChat, chats}) {
             type="text"
             label="Enter chat name"
             value={value}
-            onChange={handleChange}
+            onChange={(e) => setValue(e.target.value)}
             variant="outlined"
           />
           <Button variant="contained">Create Chat</Button>
@@ -51,7 +48,7 @@ export function ListOfChats({onAddChat, chats}) {
                     </ListItemIcon>
                     <ListItemText className={styles.listItemButton}>{chat.name}</ListItemText>
                   </div>
-                  <ListItemButton className={styles.deleteButton}>
+                  <ListItemButton onClick={() => dispatch(deleteChat(chat.name))} className={styles.deleteButton}>
                     <ListItemIcon>
                       <DeleteOutlineIcon className={styles.colorIcon}></DeleteOutlineIcon>
                     </ListItemIcon>

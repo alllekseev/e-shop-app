@@ -9,7 +9,6 @@ import {ChatsPage} from "./pages/chats.page/chats.page";
 import {ListOfChats} from "./components/list-of-chats.component/ListOfChats";
 import {MessageList} from "./components/message-list.component/MessageList";
 import {useState} from "react";
-import {nanoid} from "nanoid";
 import {defaultContext, ThemeContext} from "./utils/ThemeContext";
 import {Provider} from "react-redux";
 import {store} from "./store";
@@ -31,18 +30,18 @@ export function App() {
   const [messages, setMessages] = useState(defaultMessages);
   const [themeContext, setThemeContext] = useState(defaultContext.themeContext);
 
-  const chats = Object.keys(messages).map((chat) => ({
-    id: nanoid(),
-    name: chat
-  }))
+  // const chats = Object.keys(messages).map((chat) => ({
+  //   id: nanoid(),
+  //   name: chat
+  // }))
 
-  const onAddChat = (newChat) => {
-    setMessages({
-      ...messages,
-      [newChat.name]: []
-    })
-    newChat.name = '';
-  }
+  // const onAddChat = (newChat) => {
+  //   setMessages({
+  //     ...messages,
+  //     [newChat.name]: []
+  //   })
+  //   newChat.name = '';
+  // }
 
   const onAddMessage = (chatId, newMessages) => {
     setMessages({
@@ -70,13 +69,11 @@ export function App() {
                 <Route path="chats"
                        element={
                          <ChatsPage
-                           chats={chats}
                            messages={messages}
                            onAddMessages={onAddMessage}
-                           onAddChat={onAddChat}
                          />
                        }>
-                  <Route index element={<ListOfChats chats={chats} onAddChat={onAddChat}/>}/>
+                  <Route index element={<ListOfChats />}/>
                   <Route path=":chatId" element={<MessageList/>}/>
                 </Route>
               </Route>

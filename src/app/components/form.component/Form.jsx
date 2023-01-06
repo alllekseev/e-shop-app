@@ -1,25 +1,27 @@
 import {useEffect, useRef, useState} from "react";
 import "./form.scss";
-import {AUTHOR} from "../../constants/Author";
 import PropTypes from "prop-types";
 import {Button} from "@mui/material";
 import {TextField} from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
+import {useDispatch} from "react-redux";
+import {addMessage} from "../../store/messages/actions";
+import {useParams} from "react-router-dom";
 
-export function Form({handleAddMessage}) {
+export function Form() {
   const [text, setText] = useState('');
   const inputRef = useRef(null);
+
+  const dispatch = useDispatch()
+  const { chatId } = useParams()
 
   useEffect(() => {
     inputRef.current?.focus();
   }, [])
 
   const handleMessage = (event) => {
+    dispatch(addMessage(chatId, text))
     event.preventDefault();
-    handleAddMessage({
-      author: AUTHOR.user,
-      text
-    })
     setText('')
     inputRef.current?.focus();
   }
