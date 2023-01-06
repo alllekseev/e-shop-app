@@ -1,14 +1,15 @@
 import {useContext, useState} from "react";
 import {ThemeContext} from "../../utils/ThemeContext";
 import {useDispatch, useSelector} from "react-redux";
-import {changeName, checkedCheckbox} from "../../store/profile/actions";
+import {changeName, toggleProfile} from "../../store/profile/actions";
+import {selectName, selectVisible} from "../../store/profile/selectors";
 
 
 export function ProfilePage() {
   const {themeContext, toggleTheme} = useContext(ThemeContext)
 
-  const name = useSelector((store) => store.name)
-  const checkboxValue = useSelector((store) => store.checked)
+  const name = useSelector(selectName)
+  const visible = useSelector(selectVisible)
 
   const [value, setValue] = useState('')
 
@@ -34,10 +35,14 @@ export function ProfilePage() {
         onChange={(e) => setValue(e.target.value)}
       />
       <button onClick={handleChange}>Change name</button>
+      <br/>
 
       <input type="checkbox"
-             onChange={(e) => dispatch(checkedCheckbox(e.target.checked))}/>
-      <h3 style={{color: "#fff"}}>{checkboxValue ? 'true' : 'false'}</h3>
+             checked={visible}
+             readOnly
+             onChange={() => dispatch(toggleProfile())}/>
+      <button>Change visible</button>
+      <h3 style={{color: "#fff"}}>{visible ? 'true' : 'false'}</h3>
     </>
   )
 }

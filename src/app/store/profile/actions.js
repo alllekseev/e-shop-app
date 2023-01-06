@@ -5,7 +5,6 @@ export const changeName = (data) => ({
   payload: data
 })
 
-export const checkedCheckbox = (data) => ({
-  type: types.CHANGE_CHECKBOX,
-  payload: data
+export const toggleProfile = () => ({
+  type: types.TOGGLE_PROFILE,
 })
